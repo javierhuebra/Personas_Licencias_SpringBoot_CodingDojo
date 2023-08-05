@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Agregar Persona</title>
+</head>
+<body>
+<form th:action="@{/persons/new}" method="post" name="form" th:object="${persona}">
+    <label>Nombre
+        <span style="color: red;" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+        <input type="text" name="firstName" th:fields="*{firstName}">
+    </label>
+    <label>Apellido
+        <span style="color: red;" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+        <input type="text" name="lastName" th:fields="*{lastName}">
+    </label>
+    <input type="submit" value="enviar">
+</form>
+<a href="/">Volver al index</a>
+</body>
+</html>

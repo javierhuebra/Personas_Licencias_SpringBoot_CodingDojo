@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+</head>
+<body>
+  <h1>Tabla de personas</h1>
+  <h3>Muestra las personas que tienen licencias y las que no</h3>
+  <a href="/persons/new">
+      <button>Cargar Persona</button>
+  </a>
+  <a href="/licences/new">
+      <button>Vincular Licencias</button>
+  </a>
+  <table>
+      <thead>
+      <tr>
+          <th>Name</th>
+          <th>License Number</th>
+          <th>State</th>
+          <th>Expiration Date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="persona : ${personas}">
+          <td><a th:href="@{/persons/{id}(id=${persona.id})}"><span th:text="${persona.firstName}+' '+${persona.lastName}"></span></a></td>
+          <td th:text="${persona.licencia != null ? persona.licencia.number : '-'}"></td>
+          <td th:text="${persona.licencia != null ? persona.licencia.state : '-'}"></td>
+          <td th:text="${persona.licencia != null ? persona.licencia.expirationDate : '-'}"></td>
+          <td th:utext="${persona.licencia == null ? '<a href=/licences/new><button>Vincular</button></a>' : ''}"></td>
+      </tr>
+      </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detalle</title>
+</head>
+<body>
+<h1>Persona</h1>
+<p><strong>First Name:</strong> <span th:text="${persona.firstName}"></span></p>
+<p><strong>Last Name:</strong> <span th:text="${persona.lastName}"></span></p>
+
+<h2>Licencia</h2>
+<p th:if="${licenciaDePersona != null}">
+    <strong>License Number:</strong> <span th:text="${licenciaDePersona.number}"></span>
+</p>
+<p th:if="${licenciaDePersona != null}">
+    <strong>State:</strong> <span th:text="${licenciaDePersona.state}"></span>
+</p>
+<p th:if="${licenciaDePersona != null}">
+    <strong>Expiration Date:</strong> <span th:text="${licenciaDePersona.expirationDate}"></span>
+</p>
+<a href="/">Volver al index</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cargar Licencia</title>
+</head>
+<body>
+<form th:action="@{/licences/new}" method="post" name="form" th:object="${licencia}">
+    <label for="persona">Person :</label>
+
+    <select id="persona" name="persona">
+        <option th:each="persona : ${personas}" th:value="${persona.id}" th:text="${persona.firstName + ' ' + persona.lastName}"></option>
+    </select>
+    <br/>
+    <label for="state">Estado:</label>
+
+    <input type="text" id="state" name="state" required/>
+    <br/>
+    <label for="expirationDate">Fecha:</label>
+    <input type="date" id="expirationDate" name="expirationDate" required/>
+    <br/>
+    <input type="submit" value="Crear"/>
+</form>
+<a href="/">Volver al index</a>
+</body>
+</html>
